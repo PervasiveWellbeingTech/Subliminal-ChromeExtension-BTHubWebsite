@@ -3,7 +3,7 @@ var editorExtensionId = "hlidoiggojpiieodjnlncgohahlmhkkp";
 class HeartRateMonitor {
   constructor() {
     this.SERVICE_ID = 0x180D;
-    this.CHARACTERISTIC_ID = 0x2A00;
+    this.CHARACTERISTIC_ID = 0x2A37;
     
     this.hrElement_ = document.getElementById('hr');
     this.avgElement_ = document.getElementById('avg');
