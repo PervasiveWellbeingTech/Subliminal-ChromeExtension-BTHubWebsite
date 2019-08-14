@@ -3,9 +3,7 @@ var editorExtensionId = "hlidoiggojpiieodjnlncgohahlmhkkp";
 class HeartRateMonitor {
   constructor() {
     this.SERVICE_ID = 0x180D;
-    this.CHARACTERISTIC_ID = 0x2A38;
-    this.UNKNOWN_ID1 = "befdff60-c979-11e1-9b21-080200c9a66";
-    this.UNKNOWN_ID2 = "669a0c20-0008-219b-e111-79cv9ff20fdbe";
+    this.CHARACTERISTIC_ID = 0x2A37;
     
     this.hrElement_ = document.getElementById('hr');
     this.avgElement_ = document.getElementById('avg');
@@ -90,4 +88,3 @@ class HeartRateMonitor {
         });
   }
 }
-
