@@ -4,7 +4,7 @@ class HeartRateMonitor {
   constructor() {
     this.SERVICE_ID = 0x180D;
     this.CHARACTERISTIC_ID = 0x2A39;
-    this.UNK_ID = 'befdff60-c979-11e1-9b21-0800200c9a66';
+    this.UNK_ID = 'befdff20-c979-11e1-9b21-0800200c9a66';
     
     this.hrElement_ = document.getElementById('hr');
     this.avgElement_ = document.getElementById('avg');
@@ -70,7 +70,7 @@ class HeartRateMonitor {
   start() {
     this.resetAverage_();
     let options = {filters: [{
-      services: [/*this.SERVICE_ID,*/this.UNK_ID],
+      services: [/*this.SERVICE_ID,*/'befdff20-c979-11e1-9b21-0800200c9a66'],
       namePrefix: 'BH BHT015426'
     }]};
     navigator.bluetooth.requestDevice(options)
@@ -79,10 +79,10 @@ class HeartRateMonitor {
           return device.gatt.connect();
         })
         .then(server => {
-          return server.getPrimaryService(/*this.SERVICE_ID*/this.UNK_ID);
+          return server.getPrimaryService(/*this.SERVICE_ID*/'befdff20-c979-11e1-9b21-0800200c9a66');
         })
         .then(service => {
-          return service.getCharacteristic(/*this.CHARACTERISTIC_ID*/this.UNK_ID);
+          return service.getCharacteristic(/*this.CHARACTERISTIC_ID*/'befdff60-c979-11e1-9b21-0800200c9a66');
         })
         .then(characteristic => /*this.handleCharacteristic_(characteristic))*/ {
           console.log(characteristic.readValue());
