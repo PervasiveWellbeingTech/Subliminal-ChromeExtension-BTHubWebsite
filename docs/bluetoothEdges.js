@@ -4,6 +4,7 @@ class HeartRateMonitor {
   constructor() {
     this.SERVICE_ID = 0x180D;
     this.CHARACTERISTIC_ID = 0x2A39;
+    this.UNK_ID = 'befdff60-c979-11e1-9b21-0800200c9a66';
     
     this.hrElement_ = document.getElementById('hr');
     this.avgElement_ = document.getElementById('avg');
