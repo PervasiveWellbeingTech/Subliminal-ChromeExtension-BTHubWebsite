@@ -70,20 +70,23 @@ class HeartRateMonitor {
   start() {
     this.resetAverage_();
     let options = {filters: [{
-      services: [this.SERVICE_ID],
+      services: [/*this.SERVICE_ID,*/this.UNK_ID],
       namePrefix: 'BH BHT015426'
     }]};
     navigator.bluetooth.requestDevice(options)
         .then(device => {
+          console.log("Connected to " + device.name);
           return device.gatt.connect();
         })
         .then(server => {
-          return server.getPrimaryService(this.SERVICE_ID);
+          return server.getPrimaryService(/*this.SERVICE_ID*/this.UNK_ID);
         })
         .then(service => {
-          return service.getCharacteristic(this.CHARACTERISTIC_ID);
+          return service.getCharacteristic(/*this.CHARACTERISTIC_ID*/this.UNK_ID);
         })
-        .then(characteristic => this.handleCharacteristic_(characteristic))
+        .then(characteristic => /*this.handleCharacteristic_(characteristic))*/ {
+          console.log(characteristic.readValue());
+        })
         .catch(error => {
           console.log('Error: ' + error);
         });
