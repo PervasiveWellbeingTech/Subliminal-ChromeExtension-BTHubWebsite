@@ -84,7 +84,7 @@ class HeartRateMonitor {
         .then(service => {
           return service.getCharacteristic(/*this.CHARACTERISTIC_ID*/'befdff20-c979-11e1-9b21-0800200c9a66');
         })
-        /*.then(characteristic => this.handleCharacteristic_(characteristic))*/;
+        /*.then(characteristic => this.handleCharacteristic_(characteristic));*/
         .then(characteristic => {
           return characteristic.readValue();
         })
