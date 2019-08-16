@@ -2,7 +2,7 @@ var editorExtensionId = "hlidoiggojpiieodjnlncgohahlmhkkp";
 
 class HeartRateMonitor {
   constructor() {
-    this.SERVICE_ID = 0x180D;
+    this.SERVICE_ID = 0x1800;
     this.CHARACTERISTIC_ID = 0x2A37;
     this.UNK_ID = 'befdff20-c979-11e1-9b21-0800200c9a66';
     
