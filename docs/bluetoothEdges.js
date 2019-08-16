@@ -69,10 +69,12 @@ class HeartRateMonitor {
 
   start() {
     this.resetAverage_();
-    let options = {filters: [{
-      services: [/*this.SERVICE_ID*/'befdff20-c979-11e1-9b21-0800200c9a66'],
-      namePrefix: 'BH BHT015426'
-    }]};
+    let options = {
+      filters: [
+        {services: [/*this.SERVICE_ID*/'befdff20-c979-11e1-9b21-0800200c9a66']},
+        {services: [this.SERVICE_ID]},
+        {name: 'BH BHT015426'}
+     ]}
     navigator.bluetooth.requestDevice(options)
         .then(device => {
           console.log("Connected to " + device.name);
