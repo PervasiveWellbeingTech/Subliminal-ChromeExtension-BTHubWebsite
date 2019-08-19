@@ -66,6 +66,12 @@ class HeartRateMonitor {
         event => this.onHeartRateChanged_(event));
     return characteristic.startNotifications();
   }
+  function handleCharacteristicValueChanged(event) {
+  var value = event.target.value;
+  console.log('Received ' + value);
+  // TODO: Parse Heart Rate Measurement value.
+  // See https://github.com/WebBluetoothCG/demos/blob/gh-pages/heart-rate-sensor/heartRateSensor.js
+  }
 
   start() {
     this.resetAverage_();
@@ -89,8 +95,14 @@ class HeartRateMonitor {
         /*.then(characteristic => this.handleCharacteristic_(characteristic));*/
         .then(characteristic => {
           console.log(characteristic);
-          return characteristic.properties;
+          console.log(characteristic.properties);
+          characteristic.startNotifications();
         })
+        .then(characteristic => {
+          characteristic.addEventListener('characteristicvaluechanged',
+                                  handleCharacteristicValueChanged);
+          console.log('Notifications have been started.');
+        })    
         .then(value => {
           console.log(value);
         })
