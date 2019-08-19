@@ -7,11 +7,11 @@ class HeartRateMonitor {
     this.UNK_ID = 'befdff20-c979-11e1-9b21-0800200c9a66';
     
     this.hrElement_ = document.getElementById('hr');
-    this.avgElement_ = document.getElementById('avg');
+    this.brElement_ = document.getElementById('br');
     
-    this.resetAverage_();
+    /*this.resetAverage_();*/
   }
-
+/*
   computeAverage_() {
     if (this.timeSum_ > 0) {
       let avg = this.hrSum_ / ((this.timeSum_) * 2);
@@ -19,22 +19,25 @@ class HeartRateMonitor {
     }
     return '0.0';
   }
-
+*/
+  /*
   resetAverage_() {
     this.lastTick_ = 0;
     this.lastHr_ = 0;
     this.hrSum_ = 0;
     this.timeSum_ = 0;
   }
+  */
   
+  /*
   parseHeartRate_(data) {
     let flags = data.getUint8(0);
     if (flags & 0x1) {
       return data.getUint16(1, true);
     }
     return data.getUint8(1);
-  }
-
+  }*/
+  
   onHeartRateChanged_(event) {
     console.log("Heart rate changed: " + event);
     let dataView =  event.target.value;
@@ -60,15 +63,15 @@ class HeartRateMonitor {
     this.hrElement_.textContent = hr;
     //this.avgElement_.textContent = this.computeAverage_();
   }
-
+  /*
   handleCharacteristic_(characteristic) {
     characteristic.addEventListener('characteristicvaluechanged',
         event => this.onHeartRateChanged_(event));
     return characteristic.startNotifications();
-  }
+  }*/
 
   start() {
-    this.resetAverage_();
+    /*this.resetAverage_();*/
     let options = {
       filters: [
         {services: [/*this.SERVICE_ID*/'befdff20-c979-11e1-9b21-0800200c9a66']},
@@ -106,8 +109,26 @@ class HeartRateMonitor {
 }
 function handleCharacteristicValueChanged(event) {
   var value = event.target.value;
-  var buffer = new ArrayBuffer(22);
-  console.log('Received ' + value.getUint8(3) + ' ' +  value.getUint8(4));
-  // TODO: Parse Heart Rate Measurement value.
-  // See https://github.com/WebBluetoothCG/demos/blob/gh-pages/heart-rate-sensor/heartRateSensor.js
+  let hr = value.getUint8(3);
+  let br = value.getUint8(4);
+  console.log("Parsed hr: " + hr);
+  console.log("Parsed br: " + br);
+  chrome.runtime.sendMessage(editorExtensionId, {messageFromWeb: hr},
+    function(response) {
+      if (!response.success)
+        handleError(url);
+  });
+    /*
+    // Ignore readings where the HR or last HR value is 0 - treat this as a
+    // failed reading from the sensor.
+    if (this.lastTick_ && hr && this.lastHr_) {
+      this.hrSum_ += (tick - this.lastTick_) * (hr + this.lastHr_);
+      this.timeSum_ += tick - this.lastTick_;
+    }
+    this.lastTick_ = tick;
+    this.lastHr_ = hr;
+    
+    this.hrElement_.textContent = hr;
+    //this.avgElement_.textContent = this.computeAverage_();
+    */
   }
