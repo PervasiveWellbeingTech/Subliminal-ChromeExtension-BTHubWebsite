@@ -107,7 +107,7 @@ class HeartRateMonitor {
 function handleCharacteristicValueChanged(event) {
   var value = event.target.value;
   var buffer = new ArrayBuffer(22);
-  console.log('Received ' + value.getInt8(0) + ' ' + value.getInt8(1) + ' ' +  value.getInt8(2) + ' ' +  value.getInt8(3) + ' ' +  value.getInt8(4) + ' ' +  value.getInt8(5) + ' ' +  value.getInt8(6) + ' ' +  value.getInt8(7) + ' ' +  value.getInt8(8) + ' ' +  value.getInt8(9) + ' ' +  value.getInt8(10) + ' ' +  value.getInt8(11) + ' ' +  value.getInt8(12) + ' ' +  value.getInt8(13) + ' ' +  value.getInt8(14) + ' ' +  value.getInt8(15) + ' ' +  value.getInt8(16) + ' ' +  value.getInt8(17) + ' ' +  value.getInt8(18) + ' ' + value.getInt8(19) + ' ' + value.getInt8(20) + ' ' + value.getInt8(21));
+  console.log('Received ' + value.getUint8(0) + ' ' + value.getUint8(1) + ' ' +  value.getUint8(2) + ' ' +  value.getUint8(3) + ' ' +  value.getUint8(4) + ' ' +  value.getUint8(5) + ' ' +  value.getUint8(6) + ' ' +  value.getUint8(7) + ' ' +  value.getUint8(8) + ' ' +  value.getUint8(9) + ' ' +  value.getUint8(10) + ' ' +  value.getUint8(11) + ' ' +  value.getUint8(12) + ' ' +  value.getUint8(13) + ' ' +  value.getUint8(14) + ' ' +  value.getUint8(15) + ' ' +  value.getUint8(16) + ' ' +  value.getUint8(17) + ' ' +  value.getUint8(18) + ' ' + value.getUint8(19) + ' ' + value.getUint8(20) + ' ' + value.getUint8(21));
   // TODO: Parse Heart Rate Measurement value.
   // See https://github.com/WebBluetoothCG/demos/blob/gh-pages/heart-rate-sensor/heartRateSensor.js
   }
