@@ -88,7 +88,13 @@ class HeartRateMonitor {
         })
         /*.then(characteristic => this.handleCharacteristic_(characteristic));*/
         .then(characteristic => {
-          return characteristic.getDescriptor();
+          console.log(characteristic);
+        })
+        .then(characteristic => {
+          return characteristic.getValue();
+        })
+        .then(value => {
+          console.log(value);
         })
         .catch(error => {
           console.log('Error: ' + error);
