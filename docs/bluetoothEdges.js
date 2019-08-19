@@ -89,7 +89,7 @@ class HeartRateMonitor {
         /*.then(characteristic => this.handleCharacteristic_(characteristic));*/
         .then(characteristic => {
           console.log(characteristic);
-          return characteristic.value;
+          return characteristic.readValue();
         })
         .then(value => {
           console.log(value);
