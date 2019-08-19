@@ -66,7 +66,8 @@ class HeartRateMonitor {
         event => this.onHeartRateChanged_(event));
     return characteristic.startNotifications();
   }
-  function handleCharacteristicValueChanged(event) {
+  
+  handleCharacteristicValueChanged(event) {
   var value = event.target.value;
   console.log('Received ' + value);
   // TODO: Parse Heart Rate Measurement value.
