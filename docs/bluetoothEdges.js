@@ -106,7 +106,7 @@ class HeartRateMonitor {
 }
 function handleCharacteristicValueChanged(event) {
   var value = event.target.value;
-  console.log('Received ' + value.getBigInt64(0) + " " + value.getBigInt64(8) + " " + value.getInt32(16) + " " + value.getInt16(20) + " " + value.getInt16(22));
+  console.log('Received ' + value.getBigInt64(0) + " " + value.getBigInt64(8) + " " + value.getInt32(16) + " " + value.getInt16(20) + " " + value.getInt16(21));
   // TODO: Parse Heart Rate Measurement value.
   // See https://github.com/WebBluetoothCG/demos/blob/gh-pages/heart-rate-sensor/heartRateSensor.js
   }
