@@ -111,8 +111,10 @@ function handleCharacteristicValueChanged(event) {
   var value = event.target.value;
   let hr = value.getUint8(3);
   let br = value.getUint8(4);
+  let brOverflow = value.getUint8(5);
   console.log("Parsed hr: " + hr);
   console.log("Parsed br: " + br);
+  console.log("Extra br info: " + brOverflow);
   chrome.runtime.sendMessage(editorExtensionId, {messageFromWeb: hr},
     function(response) {
       if (!response.success)
