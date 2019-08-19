@@ -97,16 +97,13 @@ class HeartRateMonitor {
         .then(characteristic => {
           console.log(characteristic);
           console.log(characteristic.properties);
-          characteristic.startNotifications();
-        })
-        .then(characteristic => {
           characteristic.addEventListener('characteristicvaluechanged',
                                   handleCharacteristicValueChanged);
           console.log('Notifications have been started.');
         })    
-        .then(value => {
+        /*.then(value => {
           console.log(value);
-        })
+        })*/
         .catch(error => {
           console.log('Error: ' + error);
         });
