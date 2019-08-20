@@ -153,7 +153,7 @@ function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
       if (!response.success)
         handleError(url);
   });
-  */
+  
   return [hr, br];
  }
  */
