@@ -37,6 +37,28 @@ class HeartRateMonitor {
     }
     return data.getUint8(1);
   }*/
+  handleCharacteristicValueChanged(event, hrElement_, brElement_) {
+    var value = event.target.value;
+    let hr = value.getUint8(3);
+    let br = value.getUint8(4);
+    let brOverflow = value.getUint8(5);
+    if(brOverflow == 1) {
+      br = br + 256;
+    }
+    br = br/10;
+    console.log("Parsed hr: " + hr);
+    console.log("Parsed br: " + br);
+    console.log("Extra br info: " + brOverflow);
+    
+    this.hrElement_.textContent = hr;
+    /*
+    chrome.runtime.sendMessage(editorExtensionId, {messageFromWeb: hr},
+      function(response) {
+        if (!response.success)
+          handleError(url);
+    });
+    */
+ }
   
   onHeartRateChanged_(event) {
     console.log("Heart rate changed: " + event);
@@ -94,11 +116,13 @@ class HeartRateMonitor {
           console.log(characteristic);
           console.log(characteristic.properties);
           characteristic.startNotifications();
-          characteristic.addEventListener('characteristicvaluechanged', function(event){
+          characteristic.addEventListener('characteristicvaluechanged', this.handleCharacteristicValueChanged(event)); /*function(event){
               var result = handleCharacteristicValueChanged(event);
               this.hrElement_.textContent = result[0];
               this.brElement_.textContent = result[1];
           }, false);
+          */
+                                          
           console.log('Notifications have been started.');
         })    
         /*.then(value => {
@@ -110,6 +134,7 @@ class HeartRateMonitor {
   }
   
 }
+/*
 function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
   var value = event.target.value;
   let hr = value.getUint8(3);
@@ -131,3 +156,4 @@ function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
   */
   return [hr, br];
  }
+ */
