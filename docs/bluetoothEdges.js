@@ -122,10 +122,12 @@ function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
   console.log("Parsed hr: " + hr);
   console.log("Parsed br: " + br);
   console.log("Extra br info: " + brOverflow);
+  /*
   chrome.runtime.sendMessage(editorExtensionId, {messageFromWeb: hr},
     function(response) {
       if (!response.success)
         handleError(url);
   });
-  return [hr, br]
+  */
+  return [hr, br];
  }
