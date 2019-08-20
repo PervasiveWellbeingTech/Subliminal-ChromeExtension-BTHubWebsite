@@ -133,8 +133,8 @@ function handleCharacteristicValueChanged(event) {
     }
     this.lastTick_ = tick;
     this.lastHr_ = hr;
-    
-    this.hrElement_.textContent = hr;
-    //this.avgElement_.textContent = this.computeAverage_();
     */
+    this.hrElement_.textContent = hr;
+    this.brElement_.textContent = br;
+    
   }
