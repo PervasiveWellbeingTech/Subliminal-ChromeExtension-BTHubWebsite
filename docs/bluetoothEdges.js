@@ -115,6 +115,7 @@ function handleCharacteristicValueChanged(event) {
   if(brOverflow == 1) {
     br = br + 256;
   }
+  br = br/10;
   console.log("Parsed hr: " + hr);
   console.log("Parsed br: " + br);
   console.log("Extra br info: " + brOverflow);
