@@ -95,7 +95,7 @@ class HeartRateMonitor {
           console.log(characteristic.properties);
           characteristic.startNotifications();
           characteristic.addEventListener('characteristicvaluechanged',
-                                  handleCharacteristicValueChanged);
+                                  handleCharacteristicValueChanged(this.hrElement_, this.brElement_);
           console.log('Notifications have been started.');
         })    
         /*.then(value => {
@@ -107,7 +107,7 @@ class HeartRateMonitor {
   }
   
 }
-function handleCharacteristicValueChanged(event) {
+function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
   var value = event.target.value;
   let hr = value.getUint8(3);
   let brOverflow = value.getUint8(5);
@@ -134,7 +134,7 @@ function handleCharacteristicValueChanged(event) {
     this.lastTick_ = tick;
     this.lastHr_ = hr;
     */
-    this.hrElement_.textContent = hr;
-    this.brElement_.textContent = br;
+    hrElement_.textContent = hr;
+    brElement_.textContent = br;
     
   }
