@@ -119,7 +119,7 @@ function handleCharacteristicValueChanged(event) {
   console.log("Parsed hr: " + hr);
   console.log("Parsed br: " + br);
   console.log("Extra br info: " + brOverflow);
-  chrome.runtime.sendMessage(editorExtensionId, {messageFromWeb: hr},
+  chrome.runtime.sendMessage(editorExtensionId, {messageFromBTWebHost: [hr,br]},
     function(response) {
       if (!response.success)
         handleError(url);
