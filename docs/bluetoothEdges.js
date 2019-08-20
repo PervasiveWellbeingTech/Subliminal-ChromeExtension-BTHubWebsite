@@ -94,8 +94,11 @@ class HeartRateMonitor {
           console.log(characteristic);
           console.log(characteristic.properties);
           characteristic.startNotifications();
-          characteristic.addEventListener('characteristicvaluechanged',
-                                  handleCharacteristicValueChanged(this.hrElement_, this.brElement_);
+          characteristic.addEventListener('characteristicvaluechanged', function(event){
+              var result = handleCharacteristicValueChanged(event);
+              this.hrElement_.textContent = result[0];
+              this.brElement_.textContent = result[1];
+          }, false);
           console.log('Notifications have been started.');
         })    
         /*.then(value => {
@@ -110,8 +113,8 @@ class HeartRateMonitor {
 function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
   var value = event.target.value;
   let hr = value.getUint8(3);
-  let brOverflow = value.getUint8(5);
   let br = value.getUint8(4);
+  let brOverflow = value.getUint8(5);
   if(brOverflow == 1) {
     br = br + 256;
   }
@@ -124,17 +127,5 @@ function handleCharacteristicValueChanged(event, hrElement_, brElement_) {
       if (!response.success)
         handleError(url);
   });
-    /*
-    // Ignore readings where the HR or last HR value is 0 - treat this as a
-    // failed reading from the sensor.
-    if (this.lastTick_ && hr && this.lastHr_) {
-      this.hrSum_ += (tick - this.lastTick_) * (hr + this.lastHr_);
-      this.timeSum_ += tick - this.lastTick_;
-    }
-    this.lastTick_ = tick;
-    this.lastHr_ = hr;
-    */
-    hrElement_.textContent = hr;
-    brElement_.textContent = br;
-    
-  }
+  return [hr, br]
+ }
