@@ -110,8 +110,11 @@ class HeartRateMonitor {
 function handleCharacteristicValueChanged(event) {
   var value = event.target.value;
   let hr = value.getUint8(3);
-  let br = value.getUint8(4);
   let brOverflow = value.getUint8(5);
+  let br = 0;
+  if(brOverflow == 1) {
+    br = br + 256;
+  }
   console.log("Parsed hr: " + hr);
   console.log("Parsed br: " + br);
   console.log("Extra br info: " + brOverflow);
