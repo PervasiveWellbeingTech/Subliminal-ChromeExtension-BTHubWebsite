@@ -19,12 +19,12 @@
     </div>
      <form><button>Start</button></form>
      <script>
-  document.querySelector('form').addEventListener('submit', function(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    let hrm = new HeartRateMonitor();
-    hrm.start();
-  });
-</script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        let hrm = new HeartRateMonitor();
+        hrm.start();
+      });
+      </script>
  </body>
 </html>
