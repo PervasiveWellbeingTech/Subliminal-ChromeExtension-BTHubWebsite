@@ -6,15 +6,6 @@
  </head>
  <body>
    <div class='table'>
-      <form><button>Start</button></form>
-     <script>
-  document.querySelector('form').addEventListener('submit', function(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    let hrm = new HeartRateMonitor();
-    hrm.start();
-  });
-</script>
      <div class='row'>
        <div class='cell'>
          <div class='header'>Heart Rate:</div>
@@ -25,6 +16,15 @@
          <div class='value' id='br'>0</div>
        </div>
      </div>
- </div>
+    </div>
+     <form><button>Start</button></form>
+     <script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    let hrm = new HeartRateMonitor();
+    hrm.start();
+  });
+</script>
  </body>
 </html>
