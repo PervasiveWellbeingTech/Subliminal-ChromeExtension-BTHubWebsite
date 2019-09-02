@@ -1,5 +1,7 @@
 body {
   background-image: linear-gradient(LightSkyBlue, white);
+  color: white;
+  
 }
 
 .cell {
