@@ -16,7 +16,7 @@ body {
   background-image: linear-gradient(LightSkyBlue, white);
   color: white;
   width: 80%;
-  margin: auto;
+  margin: 50px auto;
 }
 
 .cell {
