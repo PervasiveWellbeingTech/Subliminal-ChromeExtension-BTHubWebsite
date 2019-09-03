@@ -15,6 +15,7 @@ button {
 body {
   background-image: linear-gradient(LightSkyBlue, white);
   color: white;
+  padding: 100px 50px 0px 50ps;
 }
 
 .cell {
