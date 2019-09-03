@@ -38,26 +38,26 @@ class HeartRateMonitor {
     return data.getUint8(1);
   }*/
   handleCharacteristicValueChanged(event) {
-  var value = event.target.value;
-  let hr = value.getUint8(3);
-  let brOverflow = value.getUint8(5);
-  let br = value.getUint8(4);
-  if(brOverflow == 1) {
-    br = br + 256;
-  }
-  br = br/10;
-  console.log("Parsed hr: " + hr);
-  console.log("Parsed br: " + br);
-  console.log("BR overflow?: " + brOverflow);
-  chrome.runtime.sendMessage(editorExtensionId, {messageFromBTWebHost: {hr,br}},
-    function(response) {
-      if (!response.success)
-        handleError(url);
-  });
+    var value = event.target.value;
+    let hr = value.getUint8(3);
+    let brOverflow = value.getUint8(5);
+    let br = value.getUint8(4);
+    if(brOverflow == 1) {
+      br = br + 256;
+    }
+    br = br/10;
+    console.log("Parsed hr: " + hr);
+    console.log("Parsed br: " + br);
+    console.log("BR overflow?: " + brOverflow);  
     this.hrElement_.textContent = hr;
     this.brElement_.textContent = br;
+    chrome.runtime.sendMessage(editorExtensionId, {messageFromBTWebHost: {hr,br}},
+      function(response) {
+        if (!response.success)
+          handleError(url);
+    });
   }
-  
+  /*
   onHeartRateChanged_(event) {
     //console.log("Heart rate changed: " + event);
     let dataView =  event.target.value;
@@ -83,6 +83,7 @@ class HeartRateMonitor {
     this.hrElement_.textContent = hr;
     //this.avgElement_.textContent = this.computeAverage_();
   }
+  */
   /*
   handleCharacteristic_(characteristic) {
     characteristic.addEventListener('characteristicvaluechanged',
@@ -125,10 +126,8 @@ class HeartRateMonitor {
         .catch(error => {
           console.log('Error: ' + error);
         });
-  }
-  
+  } 
 }
-
     /*
     // Ignore readings where the HR or last HR value is 0 - treat this as a
     // failed reading from the sensor.
@@ -142,4 +141,4 @@ class HeartRateMonitor {
     this.hrElement_.textContent = hr;
     //this.avgElement_.textContent = this.computeAverage_();
     */
-  1
+
