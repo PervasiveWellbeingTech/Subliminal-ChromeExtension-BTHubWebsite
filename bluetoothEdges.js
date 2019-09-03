@@ -6,8 +6,8 @@ class HeartRateMonitor {
     this.CHARACTERISTIC_ID = 0x2A37;
     this.UNK_ID = 'befdff20-c979-11e1-9b21-0800200c9a66';
     
-    this.hrElement_ = document.getElementById('hr');
-    this.brElement_ = document.getElementById('br');
+    let this.hrElement_ = document.getElementById('hr');
+    let this.brElement_ = document.getElementById('br');
     
     /*this.resetAverage_();*/
   }
