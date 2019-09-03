@@ -13,7 +13,16 @@
      <p> 2. Click the start button to connect extension to sensor </p>
      <p> 3. Browse normally without closing this tab. You can switch to other tabs as usual</p>
      </font>
-    </center>
+    <form><button>Start</button></form>
+     <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        let hrm = new HeartRateMonitor();
+        hrm.start();
+      });
+      </script>
+     </center>
      <div class='table'>
      <div class='row'>
        <div class='cell'>
@@ -26,14 +35,5 @@
        </div>
      </div>
     </div>
-     <form><button>Start</button></form>
-     <script>
-      document.querySelector('form').addEventListener('submit', function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        let hrm = new HeartRateMonitor();
-        hrm.start();
-      });
-      </script>
  </body>
 </html>
