@@ -55,7 +55,7 @@ class HeartRateMonitor {
         handleError(url);
   });
     this.hrElement_.textContent = hr;
-    thils.brElement_.textContent = br;
+    this.brElement_.textContent = br;
   }
   
   onHeartRateChanged_(event) {
