@@ -37,7 +37,7 @@ class HeartRateMonitor {
     }
     return data.getUint8(1);
   }*/
-  handleCharacteristicValueChanged(event) {
+  handleCharacteristicValueChanged(e) {
     var value = event.target.value;
     let hr = value.getUint8(3);
     let brOverflow = value.getUint8(5);
@@ -116,7 +116,7 @@ class HeartRateMonitor {
           console.log(characteristic.properties);
           characteristic.startNotifications();
           characteristic.addEventListener('characteristicvaluechanged',
-                                  this.handleCharacteristicValueChanged(event));
+                                  this.handleCharacteristicValueChanged);
           console.log('Notifications have been started.');
           
         })    
