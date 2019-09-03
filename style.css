@@ -41,9 +41,10 @@ body {
 }
 
 .table {
-  height: 30%;
-  width: 50%;
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
   display: table;
-  
+  margin: auto;
 }
 
