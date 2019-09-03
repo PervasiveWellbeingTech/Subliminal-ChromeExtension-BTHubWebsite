@@ -6,8 +6,8 @@ class HeartRateMonitor {
     this.CHARACTERISTIC_ID = 0x2A37;
     this.UNK_ID = 'befdff20-c979-11e1-9b21-0800200c9a66';
     
-    let this.hrElement_ = document.getElementById('hr');
-    let this.brElement_ = document.getElementById('br');
+    this.hrElement_ = document.getElementById('hr');
+    this.brElement_ = document.getElementById('br');
     
     /*this.resetAverage_();*/
   }
@@ -116,7 +116,7 @@ class HeartRateMonitor {
           console.log(characteristic.properties);
           characteristic.startNotifications();
           characteristic.addEventListener('characteristicvaluechanged',
-                                  this.handleCharacteristicValueChanged);
+                                  this.handleCharacteristicValueChanged(event));
           console.log('Notifications have been started.');
           
         })    
