@@ -13,7 +13,7 @@ button {
 }
 
 body {
-  background-image: linear-gradient(LightSkyBlue, gray);
+  background-image: linear-gradient(#178bff, #a6d2ff);
   color: white;
 }
 
