@@ -49,8 +49,8 @@ class HeartRateMonitor {
     console.log("Parsed hr: " + hr);
     console.log("Parsed br: " + br);
     console.log("BR overflow?: " + brOverflow);  
-    //this.hrElement_.textContent = hr;
-    //this.brElement_.textContent = br;
+    document.getElementById("hr").textContent = hr;
+    document.getElementById("br").textContent = br;
     chrome.runtime.sendMessage(editorExtensionId, {messageFromBTWebHost: {hr,br}},
       function(response) {
         if (!response.success)
