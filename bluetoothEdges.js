@@ -37,7 +37,7 @@ class HeartRateMonitor {
     }
     return data.getUint8(1);
   }*/
-  handleCharacteristicValueChanged(e) {
+  handleCharacteristicValueChanged(event) {
     var value = event.target.value;
     let hr = value.getUint8(3);
     let brOverflow = value.getUint8(5);
