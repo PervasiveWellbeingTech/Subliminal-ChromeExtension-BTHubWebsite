@@ -37,7 +37,7 @@ class HeartRateMonitor {
     }
     return data.getUint8(1);
   }*/
-  handleCharacteristicValueChanged(event) {
+  handleCharacteristicValueChanged() {
     var value = event.target.value;
     let hr = value.getUint8(3);
     let brOverflow = value.getUint8(5);
@@ -49,8 +49,8 @@ class HeartRateMonitor {
     console.log("Parsed hr: " + hr);
     console.log("Parsed br: " + br);
     console.log("BR overflow?: " + brOverflow);  
-    this.hrElement_.textContent = hr;
-    this.brElement_.textContent = br;
+    //this.hrElement_.textContent = hr;
+    //this.brElement_.textContent = br;
     chrome.runtime.sendMessage(editorExtensionId, {messageFromBTWebHost: {hr,br}},
       function(response) {
         if (!response.success)
