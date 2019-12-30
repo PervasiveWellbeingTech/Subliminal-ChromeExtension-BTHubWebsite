@@ -1,5 +1,5 @@
 # Breathing Edges Bluetooth Hub Website
-Anchor website to connect sensor to Breathing Edges extension. The https website is hosted using github pages.
+Anchor website to connect sensor to Breathing Edges extension. The https website is hosted using github pages and can be accessed through [this link.](https://pervasivewellbeingtech.github.io/Subliminal-ChromeExtension-BTHubWebsite/)
 
 As of December 2019, the adaptive mode is specifically compatible with the [Zephyr BioHarness Sensor](https://www.zephyranywhere.com/).
 
@@ -10,8 +10,6 @@ As of December 2019, the adaptive mode is specifically compatible with the [Zeph
 The Breathing Edges extension is available for download on the Google Chrome store through the following [link](https://chrome.google.com/webstore/detail/breathing-edges/bfdgeibniodkfndpedigokbjkffoaboc?fbclid=IwAR2xAAuKU682uMxKVfOiMegXmB47ibh72AprPQ61DGwR8LritvmorKvHkD0)
 
 Once downloaded, click on the "Adaptive Mode" toggle switch to open the adaptive mode website. Follow the instructions to pair the sensor to the Chrome Extension and continue browsing normally while having the adaptive mode website open.
-
-The adaptive mode website is published [here.](https://pervasivewellbeingtech.github.io/Subliminal-ChromeExtension-BTHubWebsite/)
 
 ## Prerequisites
 
