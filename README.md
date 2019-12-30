@@ -3,7 +3,7 @@ Anchor website to connect sensor to Breathing Edges extension. The https website
 
 As of December 2019, the adaptive mode is specifically compatible with the [Zephyr BioHarness Sensor](https://www.zephyranywhere.com/).
 
-[Screenshot of Breathing Edges adaptive mode website]
+![Screenshot of Breathing Edges extension](https://github.com/PervasiveWellbeingTech/Subliminal-ChromeExtension-BTHubWebsite/blob/master/BE_Adaptive.png)
 
 ## Getting Started
 
