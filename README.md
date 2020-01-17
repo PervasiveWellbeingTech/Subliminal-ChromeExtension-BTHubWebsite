@@ -11,6 +11,10 @@ The Breathing Edges extension is available for download on the Google Chrome sto
 
 Once downloaded, click on the "Adaptive Mode" toggle switch to open the adaptive mode website. Follow the instructions to pair the sensor to the Chrome Extension and continue browsing normally while having the adaptive mode website open.
 
+## Publishing and Updating the Extension
+
+Follow the instructions on [this page](https://developer.chrome.com/webstore/publish) to publish the Chrome Extension on the Google Chrome Web store. Additional information on updating the version is available. 
+
 ## Prerequisites
 
 - Google Chrome
